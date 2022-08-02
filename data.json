@@ -1,42 +1,42 @@
 [
-    
-        {
-            "firstName": "Rahul",
-            "middleName": "preet",
-            "lastName": "singh",
-            "email": "abc@gmail.com",
-            "phoneNumber": 9041297701,
-            "Role": "admin",
-            "Address": "HNo. 420 abc street xyz road klm city ",
-            "Doj":"11 June 2022 Time: 06:18"
-        },
-        {
-            "firstName": "Rahul2",
-            "middleName": "singh",
-            "lastName": "preet",
-            "email": "xyz@gmail.com",
-            "phoneNumber": 9041787701,
-            "Role": "user",
-            "Address": "HNo. 420 abc street xyz road klm city ",
-            "Doj":"11 June 2022 Time: 04:45"
-        },{
-            "firstName": "Rahul",
-            "middleName": "preet",
-            "lastName": "singh",
-            "email": "abc@gmail.com",
-            "phoneNumber": 98981297701,
-            "Role": "user",
-            "Address": "HNo. 420 abc ytuu street xyz road klm city ",
-            "Doj":"26 June 2022 Time: 12:18"
-        },{
-            "firstName": "Rahul",
-            "middleName": "preet",
-            "lastName": "singh",
-            "email": "abc@gmail.com",
-            "phoneNumber": 904789997701,
-            "Role": "user",
-            "Address": "HNo. 420 abccder street xyz road klm city ",
-            "Doj":"5 June 2022 Time: 06:18"
-        }
-    
+  {
+    "firstName": "Rahul",
+    "middleName": "preet",
+    "lastName": "singh",
+    "email": "abc@gmail.com",
+    "phoneNumber": 9041297701,
+    "Role": "admin",
+    "Address": "HNo. 420 abc street xyz road klm city ",
+    "Doj": "11 June 2022 Time: 06:18"
+  },
+  {
+    "firstName": "Rahul2",
+    "middleName": "singh",
+    "lastName": "preet",
+    "email": "xyz@gmail.com",
+    "phoneNumber": 9041787701,
+    "Role": "user",
+    "Address": "HNo. 420 abc street xyz road klm city ",
+    "Doj": "11 June 2022 Time: 04:45"
+  },
+  {
+    "firstName": "Rahul",
+    "middleName": "preet",
+    "lastName": "singh",
+    "email": "abc@gmail.com",
+    "phoneNumber": 98981297701,
+    "Role": "user",
+    "Address": "HNo. 420 abc ytuu street xyz road klm city ",
+    "Doj": "26 June 2022 Time: 12:18"
+  },
+  {
+    "firstName": "Rahul",
+    "middleName": "preet",
+    "lastName": "singh",
+    "email": "abc@gmail.com",
+    "phoneNumber": 904789997701,
+    "Role": "user",
+    "Address": "HNo. 420 abccder street xyz road klm city ",
+    "Doj": "5 June 2022 Time: 06:18"
+  }
 ]

@@ -2,80 +2,103 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-</head>
-
+  <body onload="hideTable()">
 <body onload="hideTable()">     
-    <button onclick="load()" id="load" >Load Data</button><br><br>
-    <div style="display: inline;">
-        <form id="form" style="  display: flex; /* 2. display flex to the rescue */
-        flex-direction: row;
-      ">
+  <body onload="hideTable()">
+    <button onclick="load()" id="load">Load Data</button><br /><br />
+    <div style="display: inline">
+      <form
+        id="form"
+        style="
+          display: flex; /* 2. display flex to the rescue */
+          flex-direction: row;
+        "
+      >
         <label for="">First Name</label>
-        <input type="text" id="firstname" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
+        <input
+          type="text"
+          id="firstname"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
         <label for="">Middle Name</label>
-        <input type="text" id="middlename" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
+        <input
+          type="text"
+          id="middlename"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
         <label for="">Last Name</label>
-        <input type="text" id="lastname" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
+        <input
+          type="text"
+          id="lastname"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
         <label for="">Email</label>
-        <input type="text" id="email" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
+        <input
+          type="text"
+          id="email"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
         <label for="">Phone No.</label>
-        <input type="text" id="phone" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
+        <input
+          type="text"
+          id="phone"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
         <label for="">Role</label>
-        <input type="text" id="role" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
+        <input
+          type="text"
+          id="role"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
         <label for="">Address</label>
-        <input type="text" id="address" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
-        
-        <input type="submit" id="submit" style="
-        border: 1px solid #ddd;margin-bottom: 5%;margin-right: 8px;">
-        <br>
-    </form>
+        <input
+          type="text"
+          id="address"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
+
+        <input
+          type="submit"
+          id="submit"
+          style="border: 1px solid #ddd; margin-bottom: 5%; margin-right: 8px"
+        />
+        <br />
+      </form>
     </div>
 
     <table id="table" border="2px">
-        <thead>
-            <tr>
-                <th>firstName</th>
-                <th>middleName</th>
-                <th>lasttName</th>
-                <th>email</th>
-                <th>Phone No.</th>
-                <th>Role</th>
-                <th>Address</th>
-                <th>DOJ</th>
-                <th>Edit/Delete</th>
-            </tr>
-        </thead>
-        <tbody id="data-output">
-        </tbody>
+      <thead>
+        <tr>
+          <th>firstName</th>
+          <th>middleName</th>
+          <th>lasttName</th>
+          <th>email</th>
+          <th>Phone No.</th>
+          <th>Role</th>
+          <th>Address</th>
+          <th>DOJ</th>
+          <th>Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody id="data-output"></tbody>
     </table>
-    <br>
+    <br />
     <div id="btn"></div>
 
-
-<script src="script.js"></script>
-</body>
-
-
-
-
+    <script src="script.js"></script>
+  </body>
 </html>
