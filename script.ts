@@ -33,8 +33,8 @@ function userCreatedDate() {
 interface UserAction <T> {
   UsersData: Array<Array<string>>;
   addUser(refer: T): void;
-  // buttons(e:T):void;
-  // removeTr(e: T):void;
+  buttons(e:T):void;
+  removeTr(e: T):void;
 }
 
 class User<T> implements UserAction<T> {
@@ -60,7 +60,75 @@ class User<T> implements UserAction<T> {
     console.log(out);
     console.log(user);
   }
+  buttons(e: any) {
+    var ide = e.parentNode.parentNode;
+    var prevData = ide;
+    console.log(ide);
+    ide.contentEditable = "true";
+    ide.id = "edit";
+    console.log("edit");
   
+    document.getElementById("buttons")!.contentEditable = "false";
+  
+    //  var editElem = document.getElementById("edit");
+    var saveBtn = document.getElementById("saveid");
+    if (!saveBtn) {
+      //#myElementID element DOES NOT exist
+      var savebutton = document.createElement("button");
+      savebutton.innerHTML = "Save";
+      savebutton.className = "save";
+      savebutton.id = "saveid";
+  
+      document.getElementById("btn")!.appendChild(savebutton);
+      savebutton.onclick = function () {
+        saveEdits();
+      };
+    }
+  
+    var cancelBtn = document.getElementById("cancelid");
+    if (!cancelBtn) {
+      //#myElementID element DOES NOT exist
+  
+      var cancelButton = document.createElement("button");
+      cancelButton.innerHTML = "Cancel";
+      cancelButton.className = "cancel";
+      cancelButton.id = "cancelid";
+      document.getElementById("btn")!.appendChild(cancelButton);
+  
+      cancelButton.onclick = function () {
+        cancelTr(prevData, this, cancelButton, savebutton);
+      };
+    }
+  
+    function saveEdits() {
+      console.log("saveEdits");
+  
+      //get the editable element
+      var editElem = document.getElementById("edit");
+  
+      //get the edited element content
+      var userVersion = editElem!.innerHTML;
+  
+      //save the content to local storage
+      localStorage.userEdits = userVersion;
+  
+      //write a confirmation to the user
+      //   document.getElementById("update").innerHTML="Edits saved!";
+      document.getElementById("btn")!.removeChild(savebutton);
+  
+      document.getElementById("btn")!.removeChild(cancelButton);
+  
+      savebutton.addEventListener("click", saveEdits);
+    }
+  }
+  removeTr(e: any) {
+    var ide = e.parentNode.parentNode;
+    console.log(ide);
+    var p = ide.parentNode;
+    p.removeChild(ide);
+  
+    // document.getElementById("btn").removeChild(savebutton);
+  }
 
 }
 
@@ -108,7 +176,7 @@ function load() {
                 <td>${user.Role}</td>
                 <td>${user.Address}</td>
                 <td>${user.Doj}</td>
-                <td id="buttons"><button onclick="buttons(this)">Edit</button> <button onclick="removeTr(this)">Delete</button></button></td>
+                <td id="buttons"><button onclick="user.buttons(this)">Edit</button> <button onclick="user.removeTr(this)">Delete</button></button></td>
                
              </tr>
           `;
@@ -140,7 +208,6 @@ document.getElementById("form")?.addEventListener("submit", (e: any) => {
 });
 
 
-
 function cancelTr(p: any, e: any, btn: any, sbtn: any) {
   var index = p.rowIndex;
   console.log(UsersData[index]);
@@ -156,72 +223,3 @@ function cancelTr(p: any, e: any, btn: any, sbtn: any) {
 }
 
 
-function buttons(e: any) {
-  var ide = e.parentNode.parentNode;
-  var prevData = ide;
-  console.log(ide);
-  ide.contentEditable = "true";
-  ide.id = "edit";
-  console.log("edit");
-
-  document.getElementById("buttons")!.contentEditable = "false";
-
-  //  var editElem = document.getElementById("edit");
-  var saveBtn = document.getElementById("saveid");
-  if (!saveBtn) {
-    //#myElementID element DOES NOT exist
-    var savebutton = document.createElement("button");
-    savebutton.innerHTML = "Save";
-    savebutton.className = "save";
-    savebutton.id = "saveid";
-
-    document.getElementById("btn")!.appendChild(savebutton);
-    savebutton.onclick = function () {
-      saveEdits();
-    };
-  }
-
-  var cancelBtn = document.getElementById("cancelid");
-  if (!cancelBtn) {
-    //#myElementID element DOES NOT exist
-
-    var cancelButton = document.createElement("button");
-    cancelButton.innerHTML = "Cancel";
-    cancelButton.className = "cancel";
-    cancelButton.id = "cancelid";
-    document.getElementById("btn")!.appendChild(cancelButton);
-
-    cancelButton.onclick = function () {
-      cancelTr(prevData, this, cancelButton, savebutton);
-    };
-  }
-
-  function saveEdits() {
-    console.log("saveEdits");
-
-    //get the editable element
-    var editElem = document.getElementById("edit");
-
-    //get the edited element content
-    var userVersion = editElem!.innerHTML;
-
-    //save the content to local storage
-    localStorage.userEdits = userVersion;
-
-    //write a confirmation to the user
-    //   document.getElementById("update").innerHTML="Edits saved!";
-    document.getElementById("btn")!.removeChild(savebutton);
-
-    document.getElementById("btn")!.removeChild(cancelButton);
-
-    savebutton.addEventListener("click", saveEdits);
-  }
-}
-function removeTr(e: any) {
-  var ide = e.parentNode.parentNode;
-  console.log(ide);
-  var p = ide.parentNode;
-  p.removeChild(ide);
-
-  // document.getElementById("btn").removeChild(savebutton);
-}
