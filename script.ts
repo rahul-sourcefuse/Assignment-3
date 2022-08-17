@@ -1,6 +1,8 @@
 let dat: string;
+
 function userCreatedDate() {
   console.log("Called");
+  
   return function (target: any, key: string, descriptor: PropertyDescriptor) {
     let val = descriptor.value;
     descriptor.value = function (...args: any[]) {
@@ -28,12 +30,14 @@ function userCreatedDate() {
   };
 }
 
-interface UserAction {
+interface UserAction <T> {
   UsersData: Array<Array<string>>;
-  addUser(refer: any): void;
+  addUser(refer: T): void;
+  // buttons(e:T):void;
+  // removeTr(e: T):void;
 }
 
-class User<U extends Array<Array<string>>> implements UserAction {
+class User<T> implements UserAction<T> {
   constructor(public UsersData: Array<Array<string>>) {}
   @userCreatedDate()
   addUser(arr: any) {
@@ -56,6 +60,8 @@ class User<U extends Array<Array<string>>> implements UserAction {
     console.log(out);
     console.log(user);
   }
+  
+
 }
 
 enum Role {
@@ -78,30 +84,30 @@ function load() {
     .then(function (response) {
       return response.json();
     })
-    .then(function (products) {
+    .then(function (users) {
       var placeholder = document.querySelector("#data-output");
       let out = "";
       let i = 0;
-      for (let product of products) {
-        columnData.push(product.firstName);
-        columnData.push(product.middleName);
-        columnData.push(product.lastName);
-        columnData.push(product.email);
-        columnData.push(product.phoneNumber);
-        columnData.push(product.Role);
-        columnData.push(product.Address);
-        columnData.push(product.Doj);
+      for (let user of users) {
+        columnData.push(user.firstName);
+        columnData.push(user.middleName);
+        columnData.push(user.lastName);
+        columnData.push(user.email);
+        columnData.push(user.phoneNumber);
+        columnData.push(user.Role);
+        columnData.push(user.Address);
+        columnData.push(user.Doj);
 
         out += `
              <tr id="t${i}">
-                <td>${product.firstName} </td>
-                <td>${product.middleName}</td>
-                <td>${product.lastName}</td>
-                <td>${product.email}</td>
-                <td>${product.phoneNumber}</td>
-                <td>${product.Role}</td>
-                <td>${product.Address}</td>
-                <td>${product.Doj}</td>
+                <td>${user.firstName} </td>
+                <td>${user.middleName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.email}</td>
+                <td>${user.phoneNumber}</td>
+                <td>${user.Role}</td>
+                <td>${user.Address}</td>
+                <td>${user.Doj}</td>
                 <td id="buttons"><button onclick="buttons(this)">Edit</button> <button onclick="removeTr(this)">Delete</button></button></td>
                
              </tr>
@@ -133,14 +139,7 @@ document.getElementById("form")?.addEventListener("submit", (e: any) => {
   }
 });
 
-function removeTr(e: any) {
-  var ide = e.parentNode.parentNode;
-  console.log(ide);
-  var p = ide.parentNode;
-  p.removeChild(ide);
 
-  // document.getElementById("btn").removeChild(savebutton);
-}
 
 function cancelTr(p: any, e: any, btn: any, sbtn: any) {
   var index = p.rowIndex;
@@ -155,6 +154,7 @@ function cancelTr(p: any, e: any, btn: any, sbtn: any) {
   document.getElementById("btn")!.removeChild(sbtn);
   document.getElementById("btn")!.removeChild(btn);
 }
+
 
 function buttons(e: any) {
   var ide = e.parentNode.parentNode;
@@ -216,4 +216,12 @@ function buttons(e: any) {
 
     savebutton.addEventListener("click", saveEdits);
   }
+}
+function removeTr(e: any) {
+  var ide = e.parentNode.parentNode;
+  console.log(ide);
+  var p = ide.parentNode;
+  p.removeChild(ide);
+
+  // document.getElementById("btn").removeChild(savebutton);
 }

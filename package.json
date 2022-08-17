@@ -1,7 +1,6 @@
 {
   "name": "assignment-3",
   "version": "1.0.0",
-  "description": "",
   "main": "dist/script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +9,17 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^4.7.4"
-  }
+  },
+  "dependencies": {
+    "moment": "file:node_modules/moment"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahul-sourcefuse/Assignment-3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rahul-sourcefuse/Assignment-3/issues"
+  },
+  "homepage": "https://github.com/rahul-sourcefuse/Assignment-3#readme",
+  "description": ""
 }

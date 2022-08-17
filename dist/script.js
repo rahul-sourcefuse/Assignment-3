@@ -80,21 +80,21 @@ function load() {
         .then(function (response) {
         return response.json();
     })
-        .then(function (products) {
+        .then(function (users) {
         var placeholder = document.querySelector("#data-output");
         var out = "";
         var i = 0;
-        for (var _i = 0, products_1 = products; _i < products_1.length; _i++) {
-            var product = products_1[_i];
-            columnData.push(product.firstName);
-            columnData.push(product.middleName);
-            columnData.push(product.lastName);
-            columnData.push(product.email);
-            columnData.push(product.phoneNumber);
-            columnData.push(product.Role);
-            columnData.push(product.Address);
-            columnData.push(product.Doj);
-            out += "\n             <tr id=\"t" + i + "\">\n                <td>" + product.firstName + " </td>\n                <td>" + product.middleName + "</td>\n                <td>" + product.lastName + "</td>\n                <td>" + product.email + "</td>\n                <td>" + product.phoneNumber + "</td>\n                <td>" + product.Role + "</td>\n                <td>" + product.Address + "</td>\n                <td>" + product.Doj + "</td>\n                <td id=\"buttons\"><button onclick=\"buttons(this)\">Edit</button> <button onclick=\"removeTr(this)\">Delete</button></button></td>\n               \n             </tr>\n          ";
+        for (var _i = 0, users_1 = users; _i < users_1.length; _i++) {
+            var user_1 = users_1[_i];
+            columnData.push(user_1.firstName);
+            columnData.push(user_1.middleName);
+            columnData.push(user_1.lastName);
+            columnData.push(user_1.email);
+            columnData.push(user_1.phoneNumber);
+            columnData.push(user_1.Role);
+            columnData.push(user_1.Address);
+            columnData.push(user_1.Doj);
+            out += "\n             <tr id=\"t" + i + "\">\n                <td>" + user_1.firstName + " </td>\n                <td>" + user_1.middleName + "</td>\n                <td>" + user_1.lastName + "</td>\n                <td>" + user_1.email + "</td>\n                <td>" + user_1.phoneNumber + "</td>\n                <td>" + user_1.Role + "</td>\n                <td>" + user_1.Address + "</td>\n                <td>" + user_1.Doj + "</td>\n                <td id=\"buttons\"><button onclick=\"buttons(this)\">Edit</button> <button onclick=\"removeTr(this)\">Delete</button></button></td>\n               \n             </tr>\n          ";
             i++;
             UsersData.push(columnData);
         }
@@ -116,13 +116,6 @@ var user = new User(UsersData);
         return;
     }
 });
-function removeTr(e) {
-    var ide = e.parentNode.parentNode;
-    console.log(ide);
-    var p = ide.parentNode;
-    p.removeChild(ide);
-    // document.getElementById("btn").removeChild(savebutton);
-}
 function cancelTr(p, e, btn, sbtn) {
     var index = p.rowIndex;
     console.log(UsersData[index]);
@@ -181,4 +174,11 @@ function buttons(e) {
         document.getElementById("btn").removeChild(cancelButton);
         savebutton.addEventListener("click", saveEdits);
     }
+}
+function removeTr(e) {
+    var ide = e.parentNode.parentNode;
+    console.log(ide);
+    var p = ide.parentNode;
+    p.removeChild(ide);
+    // document.getElementById("btn").removeChild(savebutton);
 }
